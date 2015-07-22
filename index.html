@@ -24,6 +24,9 @@
     <nav>
         <ul>
             <li class="p-intro"><a href="#intro">INTRO</a></li>
+            <li class="p-serv"><a href="#services">SERVICES</a> </li>
+            <li class="p-projects"><a href="#projects">PROJECTS</a></li>
+
             <!--{% for node in site.posts reversed %}-->
             <!--{% capture id %}{{ node.id | remove:'/' | downcase }}{% endcapture %}-->
             <!--<li class="p-{{id}}"><a href="#{{id}}">{{node.title}}</a></li>-->
@@ -127,7 +130,7 @@
             </div>
         </div>
 
-        <div class="grid grid-pad">
+        <div class="grid grid-pad" id="services">
 
 
             <div class="col-1-4">
@@ -149,7 +152,14 @@
 
 
         </div>
-
+        <div class="grid grid-pad" id="projects">
+                {% for post in site.posts limit:20 %}
+            <div class="col-1-4">                    <!--<span>{{ post.date | date_to_string }}</span> &raquo;-->
+                    <a href="{{ BASE_PATH }}{{ post.url }}">
+                        {{ post.title }}</a>
+                </div>
+                {% endfor %}
+        </div>
 
         <div class="grid grid-pad">
 
